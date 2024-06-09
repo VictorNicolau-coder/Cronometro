@@ -1,5 +1,5 @@
-const audio = new Audio('/resource/song.mp3');
-audio.loop = true;
+/* const audio = new Audio('/resource/song.mp3');
+audio.loop = true; */
 
 window.addEventListener('load', () => {
   var timer = 1746451839;
@@ -11,8 +11,8 @@ window.addEventListener('load', () => {
     console.log('The countdown has ended!');
   });
 
-  audio.play()
+/*   audio.play()
   .catch(error => {
     console.error('Erro ao reproduzir a música: ', error);
-  });
+  }); */
 });

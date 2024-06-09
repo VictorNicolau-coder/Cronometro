@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Birthstone+Bounce:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
+html{
+    height: 100%;
+}
 
 body {
     background-color: black;
@@ -7,12 +11,11 @@ body {
     background-attachment: fixed;
     background-size: 100% 100%;
     
+    margin: 0px;
+    height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
     align-content: space-around;
-    margin: 0;
-    padding: 0;
 }
 
 .timer {
@@ -21,24 +24,28 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    font-family: "Birthstone Bounce", cursive;
-    font-size: 30px;
+    font-family: "Handlee", cursive;
     color: beige;
-    text-align: center;
-    width: 600px;
-    height: 300px;
+    width: 570px;
+    height: 378px;
     margin: auto;
     padding: 20px;
     box-sizing: border-box;
 }
 
+.timer .flipdown{margin: auto;}
+
 .timer h1{
-    margin: 0px;
+    text-align: center;
+    font-size: 3.5em;
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
 
-.timer .flipdown{
-    width: 600px;
-    font-size: 20px;
-    margin: auto;
-    text-align: center;
+@media (max-width: 550px){
+    .timer{
+        width: 100%;
+        height: 362px;
+    }
+    .timer h1{font-size: 2.5em;}
 }
