@@ -1,5 +1,3 @@
-Notification.requestPermission();
-
 /* var debugSongs = [
   {name: "debug01", artist: "Debug"},
   {name: "debug02", artist: "Debug"},
