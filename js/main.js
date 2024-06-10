@@ -15,21 +15,22 @@ var songs = [
 // Inicializa o áudio com uma música aleatória
 let audio = new Audio();
 
-audio.addEventListener('ended', () => {
+function initializeAudio() {
   audio = getRandomMusic();
-
+  audio.volume = 0.5;
   audio.play()
   .catch(error => {
     console.error('Erro ao reproduzir a música: ', error);
   });
-});
 
-window.addEventListener('load', () => {
-  audio = getRandomMusic();
-  audio.play()
-  .catch(error => {
-    console.error('Erro ao reproduzir a música: ', error);
+  audio.addEventListener('ended', () => {
+    console.log("Música terminou. Iniciando uma nova música...");
+    initializeAudio();
   });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initializeAudio();
 
   var timer = 1746451839;
   var flipdown = new FlipDown(timer, {
