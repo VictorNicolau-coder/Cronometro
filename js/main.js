@@ -1,10 +1,9 @@
-/* var debugSongs = [
+var debugSongs = [
   {name: "debug01", artist: "Debug"},
   {name: "debug02", artist: "Debug"},
-  {name: "debug03", artist: "Debug"},
   {name: "debug04", artist: "Debug"},
   {name: "debug05", artist: "Debug"}
-] */
+];
 
 var songs = [
   {name: "A noite", artist: "João Gomes"},
@@ -20,11 +19,9 @@ var songs = [
   {name: "Set fire to the rain", artist: "Adele"}
 ];
 
-
 // Inicializa o áudio com uma música aleatória
 let audio;
 let songQueue = [];
-
 
 document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById("modalPlaylist");
@@ -67,7 +64,7 @@ function shuffle(array){
 
 function initializeAudio() {
   if (songQueue.length === 0) {
-    songQueue = [...songs];
+    songQueue = [...debugSongs];
     shuffle(songQueue);
   }
 
