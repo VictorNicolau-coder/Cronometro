@@ -13,23 +13,10 @@ var songs = [
 ];
 
 // Inicializa o áudio com uma música aleatória
-let song = songs[getRandomInt(0, songs.length)];
-let audio = new Audio('resources/' + song.name + '.mp3');
-
+let audio = new Audio();
 
 audio.addEventListener('ended', () => {
-  const songInfo = document.getElementById("songInfo");
-  const songName = document.getElementById("songName");
-  const artistName = document.getElementById("artistName");
-
-  console.log('Música terminou, escolhendo outra...');
-  song = songs[getRandomInt(0, songs.length)];
-  audio = new Audio('resources/' + song.name + '.mp3');
-
-  songName.textContent = song.name
-  artistName.textContent = song.artist
-
-  showSongInfo();
+  audio = getRandomMusic();
 
   audio.play()
   .catch(error => {
@@ -38,14 +25,11 @@ audio.addEventListener('ended', () => {
 });
 
 window.addEventListener('load', () => {
-  const songInfo = document.getElementById("songInfo");
-  const songName = document.getElementById("songName");
-  const artistName = document.getElementById("artistName");
-
-  songName.textContent =  "Música: " + song.name
-  artistName.textContent = "Artista: " + song.artist
-
-  showSongInfo();
+  audio = getRandomMusic();
+  audio.play()
+  .catch(error => {
+    console.error('Erro ao reproduzir a música: ', error);
+  });
 
   var timer = 1746451839;
   var flipdown = new FlipDown(timer, {
@@ -54,11 +38,6 @@ window.addEventListener('load', () => {
   .start()
   .ifEnded(() => {
     console.log('The countdown has ended!');
-  });
-
-  audio.play()
-  .catch(error => {
-    console.error('Erro ao reproduzir a música: ', error);
   });
 });
 
@@ -77,4 +56,19 @@ function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min) + min);
+}
+
+function getRandomMusic(){
+  const songInfo = document.getElementById("songInfo");
+  const songName = document.getElementById("songName");
+  const artistName = document.getElementById("artistName");
+
+  let song = songs[getRandomInt(0, songs.length)];
+  
+  songName.textContent = song.name
+  artistName.textContent = song.artist
+  
+  showSongInfo();
+  
+  return new Audio('../resources/' + song.name + '.mp3');
 }
