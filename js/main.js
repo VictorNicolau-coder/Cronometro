@@ -1,7 +1,15 @@
+var debugSongs = [
+  {name: "debug01", artist: "Debug"},
+  {name: "debug02", artist: "Debug"},
+  {name: "debug03", artist: "Debug"},
+  {name: "debug04", artist: "Debug"},
+  {name: "debug05", artist: "Debug"}
+]
+
 var songs = [
   {name: "A noite", artist: "João Gomes"},
   {name: "Aquelas coisas", artist: "João Gomes"},
-  {name: "Basta você me ligar", artist: "Barões da pisadinha"},
+  {name: "Basta Você Me Ligar", artist: "Barões da pisadinha"},
   {name: "Camisa 10", artist: "Turma do pagode"},
   {name: "Esquema Preferido", artist: "Tarcísio do acordeon"},
   {name: "Garçon", artist: "Reginaldo Rossi"},
@@ -13,18 +21,45 @@ var songs = [
 ];
 
 // Inicializa o áudio com uma música aleatória
-let audio = new Audio();
+let audio;
+let songQueue = [];
+
+function shuffle(array){
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
 function initializeAudio() {
-  audio = getRandomMusic();
-  audio.volume = 0.5;
+  if (songQueue.length === 0) {
+    songQueue = [...songs];
+    shuffle(songQueue);
+  }
+
+  let count = 1;
+  for (let i = songQueue.length - 1; i > 0; i--) {
+    console.log( count++ + "º música: " + songQueue[i].name);
+  }
+  let song = songQueue.pop();
+  audio = new Audio('../resources/' + song.name + '.mp3');
+  audio.volume = 0.5; // Ajusta o volume para 50%
   audio.play()
-  .catch(error => {
-    console.error('Erro ao reproduzir a música: ', error);
-  });
+    .catch(error => {
+      console.error('Erro ao reproduzir a música: ', error);
+    });
+
+  const songInfo = document.getElementById("songInfo");
+  const songName = document.getElementById("songName");
+  const artistName = document.getElementById("artistName");
+
+  songName.textContent = song.name;
+  artistName.textContent = song.artist;
+
+  showSongInfo();
 
   audio.addEventListener('ended', () => {
-    console.log("Música terminou. Iniciando uma nova música...");
+    console.clear();
     initializeAudio();
   });
 }
@@ -51,25 +86,4 @@ function showSongInfo() {
 function hideSongInfo() {
   songInfo.classList.remove('visible');
   songInfo.classList.add('hidden');
-}
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min);
-}
-
-function getRandomMusic(){
-  const songInfo = document.getElementById("songInfo");
-  const songName = document.getElementById("songName");
-  const artistName = document.getElementById("artistName");
-
-  let song = songs[getRandomInt(0, songs.length)];
-  
-  songName.textContent = song.name
-  artistName.textContent = song.artist
-  
-  showSongInfo();
-  
-  return new Audio('../resources/' + song.name + '.mp3');
 }
