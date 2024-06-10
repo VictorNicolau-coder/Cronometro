@@ -1,10 +1,12 @@
-var debugSongs = [
+Notification.requestPermission();
+
+/* var debugSongs = [
   {name: "debug01", artist: "Debug"},
   {name: "debug02", artist: "Debug"},
   {name: "debug03", artist: "Debug"},
   {name: "debug04", artist: "Debug"},
   {name: "debug05", artist: "Debug"}
-]
+] */
 
 var songs = [
   {name: "A noite", artist: "João Gomes"},
@@ -20,9 +22,43 @@ var songs = [
   {name: "Set fire to the rain", artist: "Adele"}
 ];
 
+
 // Inicializa o áudio com uma música aleatória
 let audio;
 let songQueue = [];
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modal = document.getElementById("modalPlaylist");
+  const buttonClose = document.getElementById("buttonPlaylist");
+  
+  modal.show();
+  
+  buttonClose.addEventListener('click', () => {
+    initializeAudio()
+    modal.close();
+  });
+  
+  var timer = 1746451839;
+  var flipdown = new FlipDown(timer, {
+    theme: "light",
+  })
+  .start()
+  .ifEnded(() => {
+    console.log('The countdown has ended!');
+  });
+});
+
+function showSongInfo() {
+  songInfo.classList.remove('hidden');
+  songInfo.classList.add('visible');
+  setTimeout(hideSongInfo, 5000); // Oculta o pop-up após 5 segundos
+}
+
+function hideSongInfo() {
+  songInfo.classList.remove('visible');
+  songInfo.classList.add('hidden');
+}
 
 function shuffle(array){
   for (let i = array.length - 1; i > 0; i--) {
@@ -62,28 +98,4 @@ function initializeAudio() {
     console.clear();
     initializeAudio();
   });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  initializeAudio();
-
-  var timer = 1746451839;
-  var flipdown = new FlipDown(timer, {
-    theme: "light",
-  })
-  .start()
-  .ifEnded(() => {
-    console.log('The countdown has ended!');
-  });
-});
-
-function showSongInfo() {
-  songInfo.classList.remove('hidden');
-  songInfo.classList.add('visible');
-  setTimeout(hideSongInfo, 5000); // Oculta o pop-up após 5 segundos
-}
-
-function hideSongInfo() {
-  songInfo.classList.remove('visible');
-  songInfo.classList.add('hidden');
 }
