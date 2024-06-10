@@ -6,7 +6,7 @@ html{
 
 body {
     background-color: black;
-    background-image: url('/resource/bg-image.jpg');
+    background-image: url('/resources/bg-image.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -25,7 +25,7 @@ body {
     transform: translate(-50%, -50%);
 
     font-family: "Handlee", cursive;
-    color: beige;
+    color: white;
     width: 570px;
     height: 378px;
     margin: auto;
@@ -40,6 +40,50 @@ body {
     font-size: 3.5em;
     margin-top: 0px;
     margin-bottom: 10px;
+}
+
+#songInfo {
+    display: flex;
+    align-items: center;
+
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background-color: white;
+    color: white;
+
+    border-radius: 5px;
+    transition: all .8s ease-in-out;
+}
+
+#songInfo p{
+    font-family: "Handlee", cursive;
+    font-weight:bolder;
+
+    color: black;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+#songInfo img{
+    width: 64px;
+    height: 64px;
+    margin-left: 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 @media (max-width: 550px){
