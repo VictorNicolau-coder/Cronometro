@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById("modalPlaylist");
   const buttonClose = document.getElementById("buttonPlaylist");
   
-  modal.show();
+  modal.showModal();
   
   buttonClose.addEventListener('click', () => {
     initializeAudio()
