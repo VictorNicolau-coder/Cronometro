@@ -37,6 +37,7 @@ p, h1{
 }
 
 .timer .flipdown{
+    background-color: aqua;
     font-family: "Hanken Grotesk", sans-serif;
     font-weight: 400;
 }
