@@ -1,10 +1,3 @@
-/* var debugSongs = [
-  {name: "debug01", artist: "Debug"},
-  {name: "debug02", artist: "Debug"},
-  {name: "debug04", artist: "Debug"},
-  {name: "debug05", artist: "Debug"}
-]; */
-
 var songs = [
   {name: "A noite", artist: "João Gomes"},
   {name: "Aquelas coisas", artist: "João Gomes"},
