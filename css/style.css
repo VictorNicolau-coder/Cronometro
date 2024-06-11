@@ -282,6 +282,8 @@ dialog button:focus{
 
     .timer h1{font-size: 2.5em;}
 
+    .timer .fa-hourglass{font-size: 35px;}
+
     #songInfo{
         width: 90%;
     }
