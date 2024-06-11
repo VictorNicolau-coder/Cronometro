@@ -284,14 +284,13 @@ dialog button:focus{
 
     .timer .fa-hourglass{font-size: 35px;}
 
-    #songInfo{
-        width: 90%;
-    }
+    #songInfo{width: 90%;}
 
     #buttons button{
+        width: 80%;
         font-size: .9em;
 
-        width: 35%;
+        width: 120px;
         height: 45px;
     }
 
