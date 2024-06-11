@@ -9,7 +9,10 @@ var songs = [
   {name: "Já que me ensinou a beber", artist: "Barões da pisadinha"},
   {name: "Quem me dera", artist: "Márcia Felipe e Jerry Smith"},
   {name: "Se eu largar o freio", artist: "Péricles"},
-  {name: "Set fire to the rain", artist: "Adele"}
+  {name: "Set fire to the rain", artist: "Adele"},
+  {name: "Tá Vendo Aquela Lua", artist: "Tiaguinho"},
+  {name: "Fulminante", artist: "Mumuzinho"},
+  {name: "Alô Policia", artist: "Unha pintada"}
 ];
 
 // Inicializa o áudio com uma música aleatória
@@ -17,6 +20,26 @@ let audio;
 let songQueue = [];
 
 document.addEventListener('DOMContentLoaded', () => {
+  let screenWidth = window.innerWidth;
+  let images;
+  
+  if (screenWidth > 550){
+    images = [
+      '../resources/backDesktop.jpeg',
+      '../resources/backDesktop2.jpeg',
+      '../resources/backDesktop3.jpeg'
+    ];
+  } else {
+    images = [
+      '../resources/backMobile.jpeg',
+      '../resources/backMobile2.jpeg',
+      '../resources/backMobile3.jpeg'
+    ];
+  }
+  let randomIndex = Math.floor(Math.random() * images.length);
+  let randomImage = images[randomIndex];
+  document.body.style.backgroundImage = `URL(${randomImage})`;
+
   const mInfo = document.getElementById("modalInformation")
   const bInfo = document.getElementById("buttonInformation");
   const bInfoClose = document.getElementById("buttonInfoClose");
@@ -54,8 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.open("https://drive.google.com/drive/folders/1sIu2xOtfttsp0r_ehJ6kF9qqiUTBPsLG?usp=drive_link", "_blank");
     window.open("https://drive.google.com/drive/folders/17-QXOz89_2sqPi6NTl3IEJfHa5JF5GPk?usp=drive_link", "_blank");
     window.open("https://drive.google.com/drive/folders/1BAb5auQwq4vuu7g6zxz86XjlIGCYb3zu?usp=drive_link", "_blank");
-
-    console
   });
   
   var timer = 1746451839;
@@ -71,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function showSongInfo() {
   songInfo.classList.remove('hidden');
   songInfo.classList.add('visible');
-  setTimeout(hideSongInfo, 5000); // Oculta o pop-up após 5 segundos
+  setTimeout(hideSongInfo, 50000); // Oculta o pop-up após 5 segundos
 }
 
 function hideSongInfo() {
