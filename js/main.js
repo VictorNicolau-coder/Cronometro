@@ -17,14 +17,45 @@ let audio;
 let songQueue = [];
 
 document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById("modalPlaylist");
-  const buttonClose = document.getElementById("buttonPlaylist");
+  const mInfo = document.getElementById("modalInformation")
+  const bInfo = document.getElementById("buttonInformation");
+  const bInfoClose = document.getElementById("buttonInfoClose");
   
-  modal.showModal();
+  bInfo.addEventListener('click', () =>{
+    mInfo.showModal();
+    console.log("funcionou")
+  });
   
-  buttonClose.addEventListener('click', () => {
-    initializeAudio()
-    modal.close();
+  bInfoClose.addEventListener('click', () => {
+      mInfo.close();
+  });
+
+  const mPlaylist = document.getElementById("modalPlaylist");
+  const bClose = document.getElementById("buttonPlaylist");
+  
+  mPlaylist.showModal();
+  
+  bClose.addEventListener('click', () => {
+    initializeAudio();
+    mPlaylist.close();
+  });
+
+  const bDrive = document.getElementById("bDrive");
+  const bYoutube = document.getElementById("bYoutube");
+
+  bYoutube.addEventListener('click', () => {
+    window.open("https://youtube.com/playlist?list=PLQR-gda1zwFQNSzzq-ZTiPX3R9BgabMGi&si=Vs-3BOX2Q_pTBWmt", "_blank");
+  });
+
+  bDrive.addEventListener('click', () => {
+    window.open("https://drive.google.com/drive/folders/1DtECxzzUx7SLvinx-HY3x-jgBUBycou9?usp=drive_link", "_blank");
+    window.open("https://drive.google.com/drive/folders/1-WIIkCXqUyJ-u4Qf0rM-apuGZ8xmfpll?usp=drive_link", "_blank");
+    window.open("https://drive.google.com/drive/folders/1B_R4-KCT0pEXYb1pIiy-9r7a6M_0CJeR?usp=drive_link", "_blank");
+    window.open("https://drive.google.com/drive/folders/1sIu2xOtfttsp0r_ehJ6kF9qqiUTBPsLG?usp=drive_link", "_blank");
+    window.open("https://drive.google.com/drive/folders/17-QXOz89_2sqPi6NTl3IEJfHa5JF5GPk?usp=drive_link", "_blank");
+    window.open("https://drive.google.com/drive/folders/1BAb5auQwq4vuu7g6zxz86XjlIGCYb3zu?usp=drive_link", "_blank");
+
+    console
   });
   
   var timer = 1746451839;
