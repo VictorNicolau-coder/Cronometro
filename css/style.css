@@ -32,13 +32,11 @@ p, h1{
     color: white;
     width: 570px;
     height: 378px;
-    margin: auto;
     padding: 20px;
     box-sizing: border-box;
 }
 
 .timer .flipdown{
-    margin: auto;
     font-family: "Hanken Grotesk", sans-serif;
     font-weight: 400;
 }
