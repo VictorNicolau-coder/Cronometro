@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
 function showSongInfo() {
   songInfo.classList.remove('hidden');
   songInfo.classList.add('visible');
-  setTimeout(hideSongInfo, 50000); // Oculta o pop-up após 5 segundos
+  setTimeout(hideSongInfo, 15000); // Oculta o pop-up após 5 segundos
 }
 
 function hideSongInfo() {
