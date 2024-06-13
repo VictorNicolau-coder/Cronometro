@@ -26,14 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
   if (screenWidth > 550){
     images = [
       '../resources/backDesktop.jpeg',
-      '../resources/backDesktop2.jpeg',
-      '../resources/backDesktop3.jpeg'
+      '../resources/backDesktop2.jpeg'
+      //'../resources/backDesktop3.jpeg'
     ];
   } else {
     images = [
       '../resources/backMobile.jpeg',
-      '../resources/backMobile2.jpeg',
-      '../resources/backMobile3.jpeg'
+      '../resources/backMobile2.jpeg'
+      //'../resources/backMobile3.jpeg'
     ];
   }
   let randomIndex = Math.floor(Math.random() * images.length);
